@@ -1,0 +1,25 @@
+header {
+    height: 50px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.window {
+    width: 400px;
+    font-size: 1.3em;
+}
+
+.Top_Windows {
+    font-size: 1.4em;
+    height: 40px;
+}
+
+.btn {
+    padding: 5px 10px;
+}
+

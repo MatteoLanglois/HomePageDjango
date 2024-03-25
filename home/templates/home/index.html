@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr" class="sr">
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenue !</title>
+    <meta name="description" content="Site web de Matteo Langlois avec différents projets">
+    <meta name="keywords" content="ENT, Peripheriques, Shapez, Recettes">
+    <meta name="author" content="Matteo Langlois">
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+    <link rel="stylesheet" href="{% static 'home/styleComputer.css' %}" media="all and (min-width: 1023px)">
+    <link rel="stylesheet" href="{% static 'home/stylePhone.css' %}" media="all and (max-width: 1023px)">
+    <link rel="stylesheet" href="{% static 'home/animationBG.css' %}">
+    <script src="https://kit.fontawesome.com/f0c5800638.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/scrollreveal@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1><i class="fa-solid fa-terminal"></i> Echo Bienvenue_ </h1>
+    </header>
+    <div class="content">
+        {% for projet in projects %}
+        <div class="Center_h Reveal animation1">
+            <div class="window">
+                <div class="Top_Windows">
+                    <i class="fa-solid fa-terminal"></i>
+                    <span>{{ projet.titre }} <i class="{{ projet.icon }}"></i></span>
+                    <div class="close_button">
+                        <button onclick="document.getElementById('Window-{{ projet.titre }}').style.display = 'none';
+                                         document.getElementById('rest-{{ projet.titre }}').style.display = 'block';
+                                         document.getElementById('mini-{{ projet.titre }}').style.display = 'none';"
+                                class="btn" id="mini-{{ projet.titre }}">
+                            <i class="fa-solid fa-window-minimize"></i>
+                        </button>
+                        <button onclick="document.getElementById('Window-{{ projet.titre }}').style.display = 'block';
+                                         document.getElementById('rest-{{ projet.titre }}').style.display = 'none';
+                                         document.getElementById('mini-{{ projet.titre }}').style.display = 'block';"
+                                class="btn" id="rest-{{ projet.titre }}" style="display: none">
+                            <i class="fa-solid fa-window-restore"></i>
+                        </button>
+                        <button onclick="
+                        document.getElementById('modal-{{ projet.titre }}').style.display ='block';" class="btn" id="maxi-ENT">
+                            <i class="fas fa-window-maximize"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="Window-{{ projet.titre }}" class="code_area">
+                    <div class="Code_text">
+                        <p class="code_line"><i class="fa-solid fa-terminal"></i> <span class="function">Echo</span> {{ projet.titre }}.<span class="method">name()</span></p>
+                        <p class="code_response"> {{ projet.nom }}</p>
+                        <p class="code_line"><i class="fa-solid fa-terminal"></i> <span class="function">Echo</span> {{ projet.titre }}.<span class="method">type()</span></p>
+                        <p class="code_response"> {{ projet.type }}</p>
+                        <p class="code_line"><i class="fa-solid fa-terminal"></i> <span class="function">Echo</span> {{ projet.titre }}.<span class="method">description()</span></p>
+                        <p class="code_response"> {{ projet.description }}</p>
+                        <p class="code_line"><i class="fa-solid fa-terminal"></i> <span class="function">{{ projet.titre }}()</span></p>
+                    </div>
+                    <div class="Foot_Window">
+                        <a href="{{ projet.link }}"><i class="fa-solid fa-play btn"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div id="modal-{{ projet.titre }}" class="modal">
+            <div class="modal-content">
+                <div class="Top_Windows">
+                    <i class="fa-solid fa-terminal"></i>
+                    <span>ENT <i class="fa-solid fa-chalkboard-user"></i></span>
+                    <div class="close_button">
+                        <button onclick="document.getElementById('Window-{{ projet.titre }}').style.display = 'none';
+                                         document.getElementById('rest-{{ projet.titre }}').style.display = 'block';
+                                         document.getElementById('mini-{{ projet.titre }}').style.display = 'none';
+                                         document.getElementById('modal-{{ projet.titre }}').style.display ='none';"
+                                class="btn">
+                            <i class="fa-solid fa-window-minimize"></i>
+                        </button>
+                        <button onclick="document.getElementById('Window-{{ projet.titre }}').style.display = 'block';
+                                         document.getElementById('rest-{{ projet.titre }}').style.display = 'none';
+                                         document.getElementById('mini-{{ projet.titre }}').style.display = 'block';
+                                         document.getElementById('maxi-{{ projet.titre }}').style.display = 'block';
+                                         document.getElementById('modal-{{ projet.titre }}').style.display ='none';"
+                                class="btn">
+                            <i class="fa-solid fa-window-restore"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="Code_text">
+                    <p class="code_line"><i class="fa-solid fa-terminal"></i> <span class="function">Echo</span> {{ projet.titre }}.<span class="method">name()</span></p>
+                    <p class="code_response"> {{ projet.nom }}</p>
+                    <p class="code_line"><i class="fa-solid fa-terminal"></i> <span class="function">Echo</span> {{ projet.titre }}.<span class="method">type()</span></p>
+                    <p class="code_response"> {{ projet.type }}</p>
+                    <p class="code_line"><i class="fa-solid fa-terminal"></i> <span class="function">Echo</span> {{ projet.titre }}.<span class="method">description()</span></p>
+                    <p class="code_response"> {{ projet.description }}.</p>
+                    <p class="code_line"><i class="fa-solid fa-terminal"></i> <span class="function">{{ projet.titre }}()</span></p>
+                </div>
+                <div class="Foot_Window">
+                    <a href="{{ projet.link }}"><i class="fa-solid fa-play btn"></i></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+     <script>
+        ScrollReveal().reveal('.animation1', {origin : 'left', duration: 600, distance: '300px', easing: 'ease-in-out', delay:100, mobile:true});
+        ScrollReveal().reveal('.animation2', {origin : 'right', duration: 600, distance: '300px', easing: 'ease-in-out', delay: 300, mobile:true});
+        ScrollReveal().reveal('.animation3', {origin : 'left', duration: 600, distance: '300px', easing: 'ease-in-out', delay: 500, mobile:true});
+        ScrollReveal().reveal('.animation4', {origin : 'right', duration: 600, distance: '300px', easing: 'ease-in-out', delay: 700, mobile:true});
+        ScrollReveal().reveal('.animation5', {origin : 'left', duration: 600, distance: '300px', easing: 'ease-in-out', delay: 900, mobile:true});
+    </script>
+</body>
+</html>

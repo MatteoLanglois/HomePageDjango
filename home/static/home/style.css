@@ -1,0 +1,178 @@
+:root {
+    --background : rgba(4, 117, 216, 1);
+    --light: #39BF17;
+    --dark: rgba(29, 38, 63, 1);
+    --medium: rgba(238, 4, 242, 1);
+    --contrast: #FFFF00;
+}
+
+html, body {
+    font-family: "Oswald", "Arial", sans-serif;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--dark);
+    color: var(--light);
+    z-index: 20;
+}
+
+h1 {
+    margin: 0;
+}
+
+.card {
+    width: 400px;
+    height: auto;
+    background-color: var(--light);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px;
+    display: none;
+}
+
+
+.btn {
+    background-image: linear-gradient(to right, var(--dark) 0%, var(--background)  51%, var(--light)  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: var(--light);
+    box-shadow: 0 0 5px #444;
+    border-radius: 10px;
+    display: block;
+    border: none;
+}
+
+.btn:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 0 10px var(--light);
+}
+
+.window {
+    height: auto;
+    color: var(--light);
+    margin: 40px;
+    overflow: auto;
+    z-index: 2;
+    position: relative;
+}
+
+.code_area {
+    background-color: var(--dark);
+    padding: 20px 0 0 0;
+}
+
+.Top_Windows {
+    background-color: #555555;
+    padding: 15px 15px 5px 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Foot_Window {
+    background-color: #555555;
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: 1.5em;
+}
+
+.Code_text {
+    padding: 0 20px;
+}
+
+.code_line {
+    margin: 0 0 5px 5px;
+}
+
+.method {color: var(--medium);}
+
+.function {color: var(--contrast);}
+
+.btn {
+    background-image: linear-gradient(to right, #1CD8D2 0%, #93EDC7  51%, #1CD8D2  100%);
+    margin: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: var(--dark);
+    border-radius: 10px;
+    display: block;
+}
+
+.btn:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.close_button {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.content {
+    width: 100%;
+    position: absolute;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 20; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: var(--dark);
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    position: absolute;
+    top: 0;
+    margin: auto;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    color: var(--light);
+    font-size: 1.5em;
+    z-index: 20;
+}
+
+.modal-content .Foot_Window {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.modal-content .Foot_Window a {
+    margin-right: 50px;
+}
+
+.modal-content .Code_text {
+    margin-top: 25px;
+}
+
+.Reveal {
+    z-index: 2;
+}
